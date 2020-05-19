@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in posts %}
+    <div class="jumbotron col-lg-12">
+  <h1 class="display-4">{{ post.title }}</h1>
+        <hr class="my-4">
+<div class="text-center">
+  <img src="{{ post.image.url }}" class="rounded" height="400" width="400" alt="...">
+</div>
+  <hr class="my-4">
+        <p class="lead">{{ post.content }}</p>
+  <hr class="my-4">
+
+  <small class="text-muted"><b>Posted on </b>{{ post.date }}</small>
+  <p class="lead">
+    <a class="btn btn-warning btn-md" href="{% url 'detail' post.id %}" role="button">view</a>
+  </p>
+
+</div>
+
+
+{% endfor %}
+{% endblock content %}
